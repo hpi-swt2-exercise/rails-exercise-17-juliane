@@ -25,6 +25,6 @@ describe "New author page", type: :feature do
     fill_in "author_first_name", :with => "Alan"
     fill_in "author_last_name", :with => "Turing"
     fill_in "author_homepage", :with => "http://wikipedia.org/Alan_Turing"
-    find('input[type="submit"').click
+    find('input[type="submit"]').click
   end
 end
