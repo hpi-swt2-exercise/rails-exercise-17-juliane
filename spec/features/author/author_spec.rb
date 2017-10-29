@@ -11,4 +11,10 @@ describe "Index author page", type: :feature do
 
 		find("th", text: "Name")
 	end
+
+	it "should have a linkt to add author" do
+		visit "authors"
+
+		expect(page).to have_css('a', text: "add author")
+	end
 end
