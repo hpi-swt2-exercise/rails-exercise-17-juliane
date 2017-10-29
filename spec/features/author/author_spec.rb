@@ -19,6 +19,7 @@ describe "Index author page", type: :feature do
 	end
 
 	it "should have a link to show the authors" do
+		FactoryGirl.create :author
 		visit authors_path
 
 		expect(page).to have_css('a', text: "show")

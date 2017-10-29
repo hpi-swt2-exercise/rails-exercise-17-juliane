@@ -1,17 +1,19 @@
 <h1>Listing Authors</h1>
  
-<%= link_to "Add author", new_author_path %>
+<%= link_to 'Add author', new_author_path %>
 
 <table>
   <tr>
     <th>Name</th>
     <th>Homepage</th>
+    <th>Links</th>
   </tr>
  
   <% @authors.each do |author| %>
     <tr>
       <td><%= author.name %></td>
       <td><%= author.homepage %></td>
+      <td><%= link_to 'show', author_path(author.id) %></td>
     </tr>
   <% end %>
 </table>
