@@ -14,6 +14,10 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.5'
 end
 
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'turbolinks'
+
 group :development do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
