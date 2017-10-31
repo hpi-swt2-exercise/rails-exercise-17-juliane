@@ -31,4 +31,11 @@ describe "Index author page", type: :feature do
 
 		expect(page).to have_link('Edit')
 	end
+
+	it "should have a link to delete an author" do
+		FactoryGirl.create :author
+		visit authors_path
+
+		expect(page).to have_link('Destroy')
+	end
 end
