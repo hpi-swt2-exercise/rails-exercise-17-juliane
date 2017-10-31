@@ -24,4 +24,11 @@ describe "Index author page", type: :feature do
 
 		expect(page).to have_link('Show')
 	end
+
+	it "should link to edit author page" do 
+		FactoryGirl.create :author
+		visit authors_path
+
+		expect(page).to have_link('Edit')
+	end
 end
