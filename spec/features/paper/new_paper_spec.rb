@@ -19,14 +19,8 @@ describe "New paper page", type: :feature do
     fill_in 'paper_title', :with => 'COMPUTING MACHINERY AND INTELLIGENCE'
     fill_in 'paper_venue', :with => 'Mind 49: 433-460'
     fill_in 'paper_year', :with => 1950
-    expect(find('input[type="submit"]').click).to change{Paper.count}
-  end
-
-  it "should be able to save a paper after filling in the parameter and pressing the submit button" do
-    visit new_paper_path
-    fill_in 'paper_title', :with => 'COMPUTING MACHINERY AND INTELLIGENCE'
-    fill_in 'paper_venue', :with => 'Mind 49: 433-460'
-    fill_in 'paper_year', :with => 1950
-    expect(find('input[type="submit"]').click).to change{Paper.count}
+    oldcount = Paper.count
+    find('input[type="submit"]').click
+    expect(Paper.count).to eq(oldcount+1)
   end
 end
