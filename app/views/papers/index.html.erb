@@ -1,1 +1,19 @@
-<h1>Papers Index page</h1>
+<h1>Listing Papers</h1>
+
+<%= link_to 'Add paper', new_paper_path %>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Venue</th>
+    <th>Year</th>
+  </tr>
+
+  <% @papers.each do |paper| %>
+      <tr>
+        <td><%= paper.title %></td>
+        <td><%= paper.venue %></td>
+        <td><%= paper.year %></td>
+  <% end %>
+</table>
+</table>
