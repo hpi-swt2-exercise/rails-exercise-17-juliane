@@ -26,5 +26,12 @@ describe "Index paper page", type: :feature do
 		visit papers_path
 
 		expect(page).to have_link('Edit')
+  end
+
+  it "should have a link to edit the authors" do
+		FactoryGirl.create :paper
+		visit papers_path
+
+		expect(page).to have_link('Destroy')
 	end
 end
