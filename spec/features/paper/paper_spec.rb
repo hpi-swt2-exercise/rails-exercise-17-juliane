@@ -14,24 +14,31 @@ describe "Index paper page", type: :feature do
     expect(page).to have_text(paper.year)
   end
 
-	it "should have a link to show the authors" do
+	it "should have a link to show the papers" do
 		FactoryGirl.create :paper
 		visit papers_path
 
 		expect(page).to have_link('Show')
   end
 
-	it "should have a link to edit the authors" do
+	it "should have a link to edit the papers" do
 		FactoryGirl.create :paper
 		visit papers_path
 
 		expect(page).to have_link('Edit')
   end
 
-  it "should have a link to edit the authors" do
+  it "should have a link to edit the papers" do
 		FactoryGirl.create :paper
 		visit papers_path
 
 		expect(page).to have_link('Destroy')
+  end
+
+	it "should have a link to delete paper and delete it when its clicked" do
+		paper = FactoryGirl.create :paper
+		visit papers_path
+		find("a[href='#{paper_path(paper)}']", :text => 'Destroy').click
+		expect(Paper.where(id: paper.id)).not_to exist
 	end
 end
