@@ -7,5 +7,10 @@ RSpec.describe Paper, type: :model do
 		expect(paper.year).to eq(1950)
 		expect(paper.venue).to eq("Mind 49: 433-460")
 		expect(paper.title).to eq("COMPUTING MACHINERY AND INTELLIGENCE")
+  end
+
+	it "should not be created without a last name" do
+		paper = Paper.new(venue: "Mind 49: 433-460", year: 1950)
+		expect(paper).to be_invalid
 	end
 end
