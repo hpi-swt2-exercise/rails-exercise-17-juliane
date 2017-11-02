@@ -4,9 +4,9 @@ class PapersController < ApplicationController
 	end
 
 	def create
-		@author = Author.find(params[:author_id])
-		@paper = @author.paper.create(paper_params)
-		redirect_to author_path(@article)
+		#@author = Author.find(params[:author_id])
+		#@paper = @author.paper.create(paper_params)
+		redirect_to Paper.new
 	end
 
 	private
