@@ -31,7 +31,7 @@ RSpec.describe Paper, type: :model do
 
   	it "should have and belong to many authors" do
       paper = FactoryGirl.create :paper
-      expect(paper.author).not_to be_empty
+      expect(paper.authors).not_to be_empty
     end
 
 end
