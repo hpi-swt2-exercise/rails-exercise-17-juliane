@@ -3,8 +3,7 @@ class CreatePapers < ActiveRecord::Migration
     create_table :papers do |t|
       t.string :title
       t.string :venue
-      t.string :year
-      t.references :author, index: true, foreign_key: true
+      t.integer :year
 
       t.timestamps null: false
     end

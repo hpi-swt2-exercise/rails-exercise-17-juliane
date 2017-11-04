@@ -29,5 +29,9 @@ RSpec.describe Paper, type: :model do
 		expect(paper).to be_invalid
 	end
 
+  	it "should have and belong to many authors" do
+      paper = FactoryGirl.create :paper
+      expect(paper.author).not_to be_empty
+    end
 
 end
