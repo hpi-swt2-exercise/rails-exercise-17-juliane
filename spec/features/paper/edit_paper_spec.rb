@@ -21,4 +21,14 @@ describe "Edit paper page", type: :feature do
     	expect(page).to have_field("Author #{i+1}")
     end
   end
+
+  it 'should save changes of authors' do
+    paper = FactoryGirl.create :paper
+    author = Author.new(first_name: "Peter", last_name: "Plagiarist")
+    author.save!
+    visit edit_paper_path(paper.id)
+    select(author.name, :from => 'Author 1')
+		find('input[type="submit"]').click
+    expect(paper.authors).to include(author)
+  end
 end
