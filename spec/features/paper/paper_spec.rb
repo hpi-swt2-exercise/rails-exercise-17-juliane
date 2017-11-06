@@ -40,5 +40,12 @@ describe "Index paper page", type: :feature do
 		visit papers_path
 		find("a[href='#{paper_path(paper)}']", :text => 'Destroy').click
 		expect(Paper.where(id: paper.id)).not_to exist
-	end
+  end
+
+  it 'should filter papers by the year' do
+    paper = FactoryGirl.create :paper
+    visit papers_path+"?year=0"
+    expect(page).not_to have_text(paper.title)
+  end
+
 end
