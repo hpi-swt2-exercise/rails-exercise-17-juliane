@@ -16,9 +16,7 @@ class PapersController < ApplicationController
 	end
 
 	def create
-		#@author = Author.find(params[:author_id])
 		@paper = Paper.new(paper_params)
-
 
 		if @paper.save
 			redirect_to @paper
@@ -46,6 +44,6 @@ class PapersController < ApplicationController
 
 	private
 		def paper_params
-			params.require(:paper).permit(:title, :venue, :year)
+			params.require(:paper).permit(:title, :venue, :year, { author_ids: []})
 		end
 end
