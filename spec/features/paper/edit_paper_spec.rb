@@ -27,8 +27,9 @@ describe "Edit paper page", type: :feature do
     author = Author.new(first_name: "Peter", last_name: "Plagiarist")
     author.save!
     visit edit_paper_path(paper.id)
-    select(author.name, :from => 'Author 1')
+    select author.name, :from => "paper_author_id_1"
 		find('input[type="submit"]').click
-    expect(paper.authors).to include(author)
+    expect(Paper.find(paper.id).authors.first).to eq(author)
+    #expect(paper.authors).to include(author)
   end
 end
